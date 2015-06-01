@@ -8,6 +8,9 @@
 
 #import "LightLoginViewController.h"
 #import "LightRegisterViewController.h"
+#import "IndexViewController.h"
+#import "AppDelegate.h"
+#import "LightBaseTabController.h"
 
 #define LightURL @"http://123.57.221.116:8080/light-server/intf/user/login.shtml"
 
@@ -137,8 +140,8 @@
         _loginButton=[[UIButton alloc]initWithFrame:CGRectMake(CGRectGetMinX(self.usernameField.frame), CGRectGetMaxY(self.passwordField.frame)+4*VerticalSpacing, CGRectGetWidth(self.usernameField.frame), CGRectGetHeight(self.usernameField.frame))];
         [_loginButton setTitle:@"登录" forState:UIControlStateNormal];
         [_loginButton setBackgroundImage:[[UIImage imageNamed:@"blue_login_normal"]stretchableImageWithLeftCapWidth:10 topCapHeight:15 ] forState:UIControlStateNormal];
-        [self.loginButton setBackgroundImage:[[UIImage imageNamed:@"blue_login_disable"] stretchableImageWithLeftCapWidth:10 topCapHeight:15 ] forState:UIControlStateDisabled];
-        [self.loginButton setBackgroundImage:[[UIImage imageNamed:@"blue_login_highlight"]stretchableImageWithLeftCapWidth:10 topCapHeight:15 ] forState:UIControlStateHighlighted];
+        [_loginButton setBackgroundImage:[[UIImage imageNamed:@"blue_login_disable"] stretchableImageWithLeftCapWidth:10 topCapHeight:15 ] forState:UIControlStateDisabled];
+        [_loginButton setBackgroundImage:[[UIImage imageNamed:@"blue_login_highlight"]stretchableImageWithLeftCapWidth:10 topCapHeight:15 ] forState:UIControlStateHighlighted];
         _loginButton.enabled = YES;
         [_loginButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_loginButton addTarget:self action:@selector(login:) forControlEvents:UIControlEventTouchUpInside];
@@ -229,6 +232,8 @@
             NSLog(@"connection error");
         }
     }];
+    AppDelegate * delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    [delegate toMain];
 }
 
 -(void)toRegister:(id)sender{
