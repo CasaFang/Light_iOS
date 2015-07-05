@@ -9,6 +9,7 @@
 #import "CPYTableViewController.h"
 #import "CPYListTableViewController.h"
 #import "DetailViewController.h"
+
 @interface CPYTableViewController ()
 
 @end
@@ -74,8 +75,8 @@
     }
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     cell.imageView.image=[UIImage imageNamed:@"img.png"];
-    cell.textLabel.text=@"手机号";
-    cell.detailTextLabel.text=@"123456";
+//    cell.textLabel.text=@"手机号";
+//    cell.detailTextLabel.text=@"123456";
     return cell;
 }
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
